@@ -8,12 +8,14 @@ const Table = ({data}) => {
                 <th>დაავადება</th>
                 <th>სიმპტომები</th>
             </tr>
-            {data.map(item=>(
+            {data.length !== 0 ? data.map(item=>(
             <tr key={item.id}>
                 <td>{item.disease}</td>
-                <td>{item.symptoms}</td>
+                <td>{item.symptoms.map((el, index) => {
+                  return index === item.symptoms.length - 1 ? el : el + ", ";
+                })}</td>
             </tr>
-            ))}
+            )): <td>დაავადება ვერ მოიძებნა...</td>}
         </tbody>
     </table>
   )

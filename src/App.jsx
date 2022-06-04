@@ -8,7 +8,7 @@ function App() {
   const [query, setQuery] = useState("");
 
   const search = (data) => {
-    return data.filter((item) => item.disease.toLowerCase().includes(query) || item.symptoms.includes(query));
+    return data.filter((item) => item.disease.toLowerCase().includes(query) || item.symptoms.some(el => el.toLowerCase().includes(query)));
   }
 
   return (<div className='app'>
